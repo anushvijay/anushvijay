@@ -3,94 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anush V - Portfolio</title>
+  <title>Anush V | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-light: #f3f4f6;
+      --bg-dark: #121212;
+      --text-light: #000000;
+      --text-dark: #ffffff;
+      --card-bg-light: rgba(255, 255, 255, 0.6);
+      --card-bg-dark: rgba(255, 255, 255, 0.1);
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
     }
+
+    body.light-mode {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
     header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #34495e;
-      padding: 10px;
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
     }
+
     nav a {
-      color: white;
+      margin: 0 1rem;
       text-decoration: none;
-      margin: 0 15px;
+      color: inherit;
+      font-weight: 500;
+      transition: color 0.3s;
     }
+
+    nav a:hover {
+      color: #6c63ff;
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(to right, #6c63ff, #3f3d56);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding-top: 5rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
     .container {
-      padding: 20px;
+      padding: 5rem 2rem 2rem;
       max-width: 1000px;
-      margin: auto;
+      margin: 0 auto;
     }
+
     section {
-      margin-bottom: 40px;
+      margin-bottom: 4rem;
+      transition: transform 0.3s;
     }
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
+
+    section:hover {
+      transform: translateY(-5px);
     }
-    .profile-pic {
-      max-width: 150px;
-      border-radius: 50%;
-      display: block;
-      margin: 20px auto;
+
+    .card {
+      background: var(--card-bg-light);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode .card {
+      background: var(--card-bg-dark);
+      color: var(--text-dark);
+    }
+
+    .toggle-mode {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      background: #eee;
+      border-radius: 25px;
+      border: none;
+      font-weight: bold;
+    }
+
+    .toggle-mode:hover {
+      background: #ddd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-<body>
+<body class="light-mode">
   <header>
-    <h1>Anush V</h1>
-    <p>MBA Finance and BI & Analytics Student</p>
+    <h2>Anush V</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <section class="hero">
+    <div>
+      <h1>Welcome to My Portfolio</h1>
+      <p>MBA in Finance & Business Analytics | Kristu Jayanti College</p>
+    </div>
+  </section>
 
   <div class="container">
-    <img src="https://media.licdn.com/dms/image/D4D03AQEgUTn2I0evNw/profile-displayphoto-shrink_800_800/0/1706869146212?e=2147483647&v=beta&t=XcSxIUOfQ74-qxvWWIQOkYYVUYReipQ3c2qR1kklGb8" alt="Anush V" class="profile-pic">
-
     <section id="about">
       <h2>About Me</h2>
-      <p>I am a motivated and detail-oriented Finance & Business Analytics student with strong analytical skills and a solid understanding of financial principles. I aim to support strategic financial decisions and contribute to organizational success.</p>
+      <p>Motivated and detail-oriented Finance & Business Analytics student with a strong grasp of financial principles and analytical tools. Passionate about using data to support strategic decisions and deliver impactful results.</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="card">
+        <strong>MBA - BI & Analytics</strong><br>Kristu Jayanti College, 2023-2025, 75.31%
+      </div>
+      <div class="card">
+        <strong>B.Com - Finance & Accountancy</strong><br>University College of Arts, 2020-2023, 71.1%
+      </div>
+      <div class="card">
+        <strong>12th - Commerce & CS</strong><br>Vidyanidhi IND PU College, 77%
+      </div>
+      <div class="card">
+        <strong>SSLC</strong><br>Sree Devi Vidya Mandira, 85.6%
+      </div>
     </section>
 
     <section id="experience">
       <h2>Experience</h2>
-      <ul>
-        <li><strong>Business Development Associate</strong> at Genstrive Private Limited (Oct 2023 - Jan 2024)</li>
-        <li><strong>Intern</strong> at Genstrive Private Limited (2 Months)</li>
-      </ul>
+      <div class="card">
+        <strong>Business Development Associate</strong><br>Genstrive Pvt Ltd, Oct 2023 – Jan 2024<br>Sales, customer relations, and mentoring.
+      </div>
+      <div class="card">
+        <strong>Intern</strong><br>Genstrive Pvt Ltd, 2 Months
+      </div>
     </section>
 
     <section id="skills">
       <h2>Skills</h2>
-      <p><strong>Technical:</strong> Microsoft Office, Tally ERP 9.0, Tableau (Basics), SQL (Basics), Power BI (Basics), Python (Basics)</p>
-      <p><strong>Soft Skills:</strong> Communication, Leadership, Strategic Thinking, Interpersonal Skills</p>
-      <p><strong>Languages:</strong> English, Kannada, Hindi</p>
+      <div class="card">
+        <strong>Technical:</strong><br>Microsoft Office, Tally ERP 9.0, Tableau, SQL, Power BI, Python (Basics)
+      </div>
+      <div class="card">
+        <strong>Soft Skills:</strong><br>Communication, Leadership, Strategic Thinking, Teamwork, Time Management
+      </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: anushvijay23@gmail.com</p>
-      <p>Phone: 8095534788</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/anushvijay23" target="_blank">linkedin.com/in/anushvijay23</a></p>
+      <p>📞 8095534788</p>
+      <p>📧 <a href="mailto:anushvijay23@gmail.com">anushvijay23@gmail.com</a></p>
+      <p>📍 Bengaluru, Karnataka</p>
+      <p>🔗 <a href="https://www.linkedin.com/in/anushvijay23" target="_blank">LinkedIn</a></p>
     </section>
   </div>
+
+  <footer>
+    &copy; 2025 Anush V. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
 </body>
 </html>
